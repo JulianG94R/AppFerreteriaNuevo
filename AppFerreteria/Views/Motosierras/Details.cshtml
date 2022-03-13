@@ -1,0 +1,58 @@
+﻿@model AppFerreteria.Models.Motosierras
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Motosierras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoMotosierra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoMotosierra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioAlquiler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioAlquiler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CodDeFabrica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodDeFabrica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoMotosierra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoMotosierra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagenMoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagenMoto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MotosierrasID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

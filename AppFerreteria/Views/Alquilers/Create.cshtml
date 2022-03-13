@@ -1,0 +1,66 @@
+﻿@model AppFerreteria.Models.Alquiler
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Agregar Nuevo Alquiler</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <div class="row">
+
+
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.FechaAlquiler, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.FechaAlquiler, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FechaAlquiler, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.ClientesID, "Cliente", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownList("ClientesID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ClientesID, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.MotosierrasID, "Cód. Motosierra", htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.DropDownList("MotosierrasID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MotosierrasID, "", new { @class = "text-danger" })
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Alquilar" class="btn btn-success" />
+                <a class="btn btn-link" href="~/Alquilers/Index">Volver</a>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

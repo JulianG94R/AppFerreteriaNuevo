@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AppFerreteria.Models.Devolucion>
+
+@{
+    ViewBag.Title = "Devoluciones";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutPrivado.cshtml";
+}
+
+<h2>Productos Devueltos</h2>
+
+<p>
+    <a class="btn btn-success" href="~/Devolucions/Create"><i class="fa fa-plus-circle" aria-hidden="true">Devolución de Producto</i></a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Cliente:
+        </th>
+        <th>
+            Código de Motosierra:
+        </th>
+        <th>
+            Fecha de la Devolución:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.ClienteFN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motosierras.CodigoMotosierra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDevolucion)
+            </td>
+
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,79 @@
+﻿
+.tamanoLogo2 {
+    width: 90%;
+    height: 25%;
+}
+.bodyblack
+{
+    background: #22252a;
+}
+
+.login-page h2 {
+    color: orangered;
+    margin-bottom: 25px;
+}
+
+.letraNegra {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+label {
+    display: contents;
+}
+
+.logo {
+    padding-left: 50px;
+}
+
+.tamanoLogo2 {
+    width: 90%;
+    height: 25%;
+    margin-top: 130px;
+}
+
+.form-control {
+    background-color: white;
+    color: black;
+}
+
+    .form-control:focus {
+        background-color: white;
+        color: black;
+    }
+
+.fa-check {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+    .fa-check:hover, fa-check:focus {
+        background-size: 100% 2px;
+    }
+
+a {
+    color: black;
+}
+
+.loginForm {
+    padding: 0px;
+}
+
+section {
+    padding-bottom: 100px;
+    padding-top: 100px;
+}
+
+p {
+    line-height: 1.8em;
+}
+
+.tituloLog
+{
+    margin-top: 50px;
+}

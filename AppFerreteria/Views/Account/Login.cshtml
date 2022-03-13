@@ -1,0 +1,97 @@
+﻿@using AppFerreteria.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Iniciar sesión";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutLog.cshtml";
+}
+
+
+
+<div class="login-page">
+    <div class="container d-flex align-items-center">
+        <div class="form-holder has-shadow">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="info d-flex align-items-center">
+                        <div class="content">
+                            <div class="logo">
+                                <img class="tamanoLogo2" src="~/Imagenes/Ferreteria logo.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <section class="loginForm" id="loginForm">
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                        {
+                            <div class="form d-flex align-items-center">
+                                <div class="content">
+                                    <div>
+                                        <h2 class="text-center tituloLog">Iniciar Sesión</h2>
+                                    </div>
+                                    <form method="get" class="form-validate mb-4">
+                                        <div class="form-group">
+                                            @Html.AntiForgeryToken()
+
+                                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 letraNegra" })
+
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 letraNegra" })
+
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <div class="checkbox">
+                                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                                    @Html.LabelFor(m => m.RememberMe, new { @class = "letraNegra" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-md-center">
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-primary text-center"><b>Acceder <i class="fa fa-sign-in" aria-hidden="true"></i></b></button>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword", "null", new { @class = "underline text-center" })
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            //Habilite esta opción una vez tenga la confirmación de la cuenta habilitada para la funcionalidad de restablecimiento de contraseña
+                            @*<p>
+                                    @Html.ActionLink("¿Ha olvidado su contraseña?", "ForgotPassword")
+                                </p>*@
+                        }
+                    </section>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+
+

@@ -1,0 +1,50 @@
+﻿@model AppFerreteria.Models.Clientes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Clientes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApellidoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApellidoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DniCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DniCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelCliente)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientesID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

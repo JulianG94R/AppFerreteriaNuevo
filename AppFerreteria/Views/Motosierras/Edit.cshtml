@@ -1,0 +1,91 @@
+﻿@model AppFerreteria.Models.Motosierras
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Producto</h2>
+
+
+@using (Html.BeginForm("Edit", "Motosierras", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Motosierras</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MotosierrasID)
+
+        <div class="form-group">
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.CodigoMotosierra, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.CodigoMotosierra, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CodigoMotosierra, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.PrecioAlquiler, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <input type="number" name="PrecioAlquiler" class="form-control" />
+                    @*@Html.EditorFor(model => model.PrecioAlquiler, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.PrecioAlquiler, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.CodDeFabrica, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*@Html.EditorFor(model => model.CodDeFabrica, new { htmlAttributes = new { @class = "form-control" } })*@
+                    <input type="number" name="CodDeFabrica" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.CodDeFabrica, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.EstadoMotosierra, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EnumDropDownListFor(model => model.EstadoMotosierra, htmlAttributes: new { @class = "form-control" })
+                    @*@Html.ValidationMessageFor(model => model.EstadoMotosierra, "", new { @class = "text-danger" })*@
+                </div>
+
+
+
+                <div class="col-md-4">
+                    @Html.LabelFor(model => model.ImagenMoto, "Imagen", htmlAttributes: new { @class = "control-label" })
+                    @*@Html.EditorFor(model => model.ImagenMoto, new { htmlAttributes = new { @class = "form-control" } })*@
+                    <input type="file" name="Imagen" id="Imagen" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.ImagenMoto, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-11">
+                    <img class="ImgEdit" src="@Url.Action("convertirImagen", "Motosierras", new {MotosierrasID = Model.MotosierrasID})" />
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar Cambios" class="btn btn-success" />
+                <a class="btn btn-link" href="~/Motosierras/Index">Volver</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

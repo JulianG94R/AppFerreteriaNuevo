@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AppFerreteria.Models.Clientes>
+
+@{
+    ViewBag.Title = "Listado de Clientes";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutPrivado.cshtml";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    <a class="btn btn-success" href="~/Clientes/Create"><i class="fa fa-plus-circle" aria-hidden="true">Agregar Nuevo Cliente</i></a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Cliente:
+        </th>
+        <th>
+            D.N.I:
+        </th>
+        <th>
+            Teléfono/Celular:
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteFN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DniCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelCliente)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="~/Clientes/Edit/@item.ClientesID">Editar <i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                <a class="btn btn-danger" onclick="BorrarCliente(@item.ClientesID)">Eliminar <i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts{
+    <script>
+        function BorrarCliente(ClienteID) {
+            var eliminar = confirm("¿Desea eliminar el cliente?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Clientes/DeleteConfirmed/" + ClienteID;
+            }
+
+        }
+
+    </script>
+
+}

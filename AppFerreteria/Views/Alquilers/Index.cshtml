@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AppFerreteria.Models.Alquiler>
+
+@{
+    ViewBag.Title = "Alquileres";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutPrivado.cshtml";
+}
+
+<h2>Alquileres Realizados</h2>
+
+<p>
+    <a class="btn btn-success" href="~/Alquilers/Create"><i class="fa fa-plus-circle" aria-hidden="true">Generar Nuevo Alquiler</i></a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Cliente:
+        </th>
+        <th>
+            Código de la Motosierra:
+        </th>
+        <th>
+            Fecha del Alquiler:
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clientes.ClienteFN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motosierras.CodigoMotosierra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaAlquiler)
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+
+</table>

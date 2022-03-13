@@ -1,0 +1,79 @@
+﻿@model IEnumerable<AppFerreteria.Models.Motosierras>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    Layout = "~/Views/Shared/_LayoutPrivado.cshtml";
+}
+
+
+<h2>Listado de Productos</h2>
+
+<p>
+    <a class="btn btn-success" href="~/Motosierras/Create"><i class="fa fa-plus-circle" aria-hidden="true">Agregar Nuevo Producto</i></a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Código:
+        </th>
+        <th>
+            Precio del Alquiler:
+        </th>
+        <th>
+            Código de Fabrica:
+        </th>
+        <th>
+            Estado:
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagenMoto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoMotosierra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioAlquiler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodDeFabrica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoMotosierra)
+            </td>
+            
+            <td class="text-left TdImgIndex">
+                <img class="ImgIndex" src="@Url.Action("convertirImagen","Motosierras", new { MotosierrasID = item.MotosierrasID})" />
+            </td>
+            
+            <td>
+                <a class="btn btn-primary" href="~/Motosierras/Edit/@item.MotosierrasID">Editar<i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+                <a class="btn btn-danger" onclick="BorrarProducto(@item.MotosierrasID)">Eliminar<i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>
+@section Scripts{
+    <script>
+        function BorrarProducto(motosierraID) {
+            var eliminar = confirm("¿Desea eliminar el producto?");
+            alert(eliminar);
+            if (eliminar == true) {
+                location.href = "../Motosierras/DeleteConfirmed" + motosierraID;
+            }
+
+        }
+
+    </script>
+
+}

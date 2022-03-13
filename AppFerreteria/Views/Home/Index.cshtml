@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="jumbotron">
+    <h1><u>Disponibilidad de Productos</u></h1>
+
+</div>
+
+<table class="table">
+    <tr>
+        <th>Cód. Motosierra</th>
+        <th>Cód. de Fábrica</th>
+        <th>Precio</th>
+
+    </tr>
+    <tbody id="tbody-Moto"></tbody>
+</table>
+
+@section Scripts{
+    <script>
+        window.onload = BuscarMoto();
+
+        function BuscarMoto() {
+            $('#tbody-Moto').empty();
+            $ajax({
+                type: "POST",
+                url: '../../Motosierras/BuscarMoto',
+                data: {},
+                success: function (listadoMotosierrasDisponibles) {
+                    $.each(listadoMotosierrasDisponibles, function (index, item) {
+                        $("#tbody-Moto").append(
+                            "<tr>" +
+                            "<td>" + item.CodigoMotosierra + "</td>" +
+                            "<td>" + '<img src="' + item.MotoImagenPrincipalString + '" />' + "</td>" +
+                            "</tr>"
+                        );
+                    })
+
+                },
+                error: function (result) {
+
+                }
+            });
+        }
+
+    </script>
+    
+    
+    }

@@ -1,0 +1,42 @@
+﻿@model AppFerreteria.Models.Alquiler
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Alquiler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Clientes.NombreCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clientes.NombreCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Motosierras.CodigoMotosierra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Motosierras.CodigoMotosierra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAlquiler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAlquiler)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AlquilerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
