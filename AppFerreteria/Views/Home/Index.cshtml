@@ -7,14 +7,14 @@
     <hr class="hrRed"/>
 </div>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-sm">
     <tr>
         <th>Cód. Motosierra</th>
         <th>Cód. de Fábrica</th>
         <th>Precio</th>
         <th></th>
     </tr>
-    <tbody id="tbody-Moto"></tbody>
+    <tbody id="tbody-Moto"> </tbody>
 </table>
 
 
@@ -27,7 +27,7 @@
         function BuscarMoto() {
             $('#tbody-Moto').empty();
 
-            $ajax({
+            $.ajax({
                 type: "POST",
                 url: '../../Motosierras/BuscarMoto',
                 data: {},
