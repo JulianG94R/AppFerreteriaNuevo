@@ -120,8 +120,8 @@ namespace AppFerreteria.Controllers
         //}
 
         // POST: Alquilers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Alquiler alquiler = db.Alquilers.Find(id);

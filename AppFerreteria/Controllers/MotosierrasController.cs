@@ -23,21 +23,7 @@ namespace AppFerreteria.Controllers
             return View(db.Motosierras.ToList());
         }
 
-        //// GET: Motosierras/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Motosierras motosierras = db.Motosierras.Find(id);
-        //    if (motosierras == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(motosierras);
-        //}
-
+     
         // GET: Motosierras/Create
         public ActionResult Create()
         {
@@ -45,8 +31,7 @@ namespace AppFerreteria.Controllers
         }
 
         // POST: Motosierras/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MotosierrasID,CodigoMotosierra,PrecioAlquiler,CodDeFabrica,EstadoMotosierra")] Motosierras motosierras, HttpPostedFileBase Imagen)
@@ -95,8 +80,7 @@ namespace AppFerreteria.Controllers
         }
 
         // POST: Motosierras/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MotosierrasID,CodigoMotosierra,PrecioAlquiler,CodDeFabrica,EstadoMotosierra")] Motosierras motosierras, HttpPostedFileBase Imagen)
@@ -129,21 +113,7 @@ namespace AppFerreteria.Controllers
             return View(motosierras);
         }
 
-        //// GET: Motosierras/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Motosierras motosierras = db.Motosierras.Find(id);
-        //    if (motosierras == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(motosierras);
-        //}
-
+       
         // POST: Motosierras/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
@@ -169,6 +139,7 @@ namespace AppFerreteria.Controllers
 
 
         [AllowAnonymous]
+
         public JsonResult BuscarMoto()
         {
             List<Motosierras> listadoMotosierrasDisponibles = new List<Motosierras>();
@@ -176,15 +147,15 @@ namespace AppFerreteria.Controllers
 
             foreach (var item in motosierras)
             {
-                var motobuscar = new Motosierras
+                var motoBuscar = new Motosierras
                 {
                     CodigoMotosierra = item.CodigoMotosierra,
-                    PrecioAlquiler = item.PrecioAlquiler,
                     CodDeFabrica = item.CodDeFabrica,
+                    PrecioAlquiler = item.PrecioAlquiler,
                     MotoImagenPrincipalString = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.ImagenMoto))
 
                 };
-                listadoMotosierrasDisponibles.Add(motobuscar);
+                listadoMotosierrasDisponibles.Add(motoBuscar);
 
             }
             return Json(listadoMotosierrasDisponibles, JsonRequestBehavior.AllowGet);

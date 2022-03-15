@@ -38,8 +38,8 @@ namespace AppFerreteria.Models
         public string TelCliente { get; set; }
 
 
-        public virtual ICollection<Alquiler> Alquileres { get; set; }
-        public virtual ICollection<Devolucion> Devoluciones { get; set; }
+        public virtual ICollection<Alquiler> Alquilers { get; set; }
+        public virtual ICollection<Devolucion> Devolucions { get; set; }
 
 
         [NotMapped]

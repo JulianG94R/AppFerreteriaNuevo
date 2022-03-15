@@ -2,12 +2,12 @@
     ViewBag.Title = "Inicio";
 }
 
-<div class="jumbotron">
-    <h1><u>Disponibilidad de Productos</u></h1>
-
+<div class="text-center">
+     <h1><u>Disponibilidad de Productos</u></h1>
+    <hr class="hrRed"/>
 </div>
 
-<table class="table">
+<table class="table table-bordered">
     <tr>
         <th>Cód. Motosierra</th>
         <th>Cód. de Fábrica</th>
@@ -17,12 +17,16 @@
     <tbody id="tbody-Moto"></tbody>
 </table>
 
+
+
+
 @section Scripts{
     <script>
         window.onload = BuscarMoto();
 
         function BuscarMoto() {
             $('#tbody-Moto').empty();
+
             $ajax({
                 type: "POST",
                 url: '../../Motosierras/BuscarMoto',
@@ -46,7 +50,5 @@
             });
         }
 
-    </script>
-    
-    
+    </script>   
     }

@@ -32,6 +32,7 @@ namespace AppFerreteria.Models
         [Required(ErrorMessage = "El campo es obligatorio")]
         public EstadoMotosierra EstadoMotosierra { get; set; }
 
+        [Display(Name = "Imagen")]
         public byte [] ImagenMoto { get; set; }
 
         public virtual ICollection<Alquiler> Alquilers { get; set; }
