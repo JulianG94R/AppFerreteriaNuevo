@@ -12,7 +12,7 @@
         <th>Cód. Motosierra</th>
         <th>Cód. de Fábrica</th>
         <th>Precio</th>
-
+        <th></th>
     </tr>
     <tbody id="tbody-Moto"></tbody>
 </table>
@@ -32,6 +32,8 @@
                         $("#tbody-Moto").append(
                             "<tr>" +
                             "<td>" + item.CodigoMotosierra + "</td>" +
+                            "<td>" + item.CodDeFabrica + "</td>" +
+                            "<td>" + item.PrecioAlquiler + "</td>" +
                             "<td>" + '<img src="' + item.MotoImagenPrincipalString + '" />' + "</td>" +
                             "</tr>"
                         );

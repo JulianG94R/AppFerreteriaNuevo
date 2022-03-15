@@ -145,8 +145,8 @@ namespace AppFerreteria.Controllers
         //}
 
         // POST: Motosierras/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Motosierras motosierras = db.Motosierras.Find(id);
